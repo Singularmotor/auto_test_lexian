@@ -4,7 +4,7 @@ import pymysql
 import unittest,time
 from selenium.webdriver.common.keys import Keys
 
-print("test13")
+print("test14")
 wf = webdriver.Firefox()
 ps=pymysql
 bp=ps.connect(host='192.168.17.66',port=3306,user='root',passwd='123456',db='lexian',charset='utf8')
