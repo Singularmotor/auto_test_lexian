@@ -4,7 +4,7 @@ import pymysql
 import unittest,time
 from selenium.webdriver.common.keys import Keys
 
-print("test13")
+print("test16")
 wf = webdriver.Firefox()
 ps=pymysql
 bp=ps.connect(host='192.168.17.66',port=3306,user='root',passwd='123456',db='lexian',charset='utf8')
@@ -19,20 +19,17 @@ time.sleep(1)
 wf.find_element_by_xpath(".//*[@id='leftMenus']/div[2]/div[2]/ul/li/a").click()
 time.sleep(1)
 wf.switch_to_frame("manager")
+wf.find_element_by_xpath(".//*[@id='content']/div/div/div[2]/table/tbody/tr/td[1]/select").click()
+time.sleep(1)
+wf.find_element_by_xpath(".//*[@id='content']/div/div/div[2]/table/tbody/tr/td[1]/select/option[1]").click()
+time.sleep(1)
 try:
-    wf.find_element_by_xpath(".//*[@id='content']/div/div/div[2]/table/tbody/tr/td[7]/input").clear()
-    wf.find_element_by_xpath(".//*[@id='content']/div/div/div[2]/table/tbody/tr/td[7]/input").send_keys("3")
-    time.sleep(1)
-    wf.find_element_by_xpath(".//*[@id='content']/div/div/div[2]/table/tbody/tr/td[7]/input").send_keys(Keys.ENTER)
-    time.sleep(1)
-    mark_01=wf.find_element_by_xpath(".//*[@id='datagrid-row-r1-1-0']/td/div").text
+    wf.find_element_by_xpath(".//*[@id='datagrid-row-r1-1-17']/td/div")
 except:
-    print("bank")
-if mark_01=="45":
     print("pass")
-else:
+    mark_01=1
+if mark_01==0:
     print("fail")
 wf.quit()
-
 if __name__ == "__main__":
     unittest.main()

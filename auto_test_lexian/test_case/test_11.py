@@ -3,7 +3,7 @@ from selenium import webdriver
 import pymysql
 import unittest,time
 
-print("test12")
+print("test10")
 wf = webdriver.Firefox()
 ps=pymysql
 bp=ps.connect(host='192.168.17.66',port=3306,user='root',passwd='123456',db='lexian',charset='utf8')
@@ -18,15 +18,17 @@ time.sleep(1)
 wf.find_element_by_xpath(".//*[@id='leftMenus']/div[2]/div[2]/ul/li/a").click()
 time.sleep(1)
 wf.switch_to_frame("manager")
+time.sleep(1)
 try:
-    wf.find_element_by_xpath(".//*[@id='content']/div/div/div[2]/table/tbody/tr/td[10]/a/span").click()
+    wf.find_element_by_xpath("html/body/div[1]/div/div[2]/span/input[1]").send_keys("18800188612")
     time.sleep(1)
-    mark_01=wf.find_element_by_xpath(".//*[@id='datagrid-row-r1-1-0']/td/div").text
+    wf.find_element_by_xpath("html/body/div[1]/div/div[2]/span/span/a").click()
+    time.sleep(1)
+    mark_01=wf.find_element_by_xpath(".//*[@id='datagrid-row-r2-2-0']/td[1]/div").text
 except:
-    print("bank")
-if mark_01=="23":
     print("pass")
-else:
+    mark_01=1
+if mark_01==0:
     print("fail")
 wf.quit()
 if __name__ == "__main__":
